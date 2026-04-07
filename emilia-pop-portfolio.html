@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emilia Pop | Masterdata Analyst & Web Developer</title>
+<meta name="description" content="Portfolio of Emilia Pop, Masterdata Analyst at Ahold Delhaize, web developer, and AI collaborator based in Timișoara, Romania.">
+<!-- Open Graph / LinkedIn preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Emilia Pop | Masterdata Analyst & Web Developer">
+<meta property="og:description" content="Data meets creativity. Masterdata Analyst at Ahold Delhaize, web developer, and AI collaborator. MSc Business Information Systems, FEAA Timișoara.">
+<meta property="og:image" content="https://emiliapop.netlify.app/preview.png">
+<meta property="og:url" content="https://emiliapop.netlify.app">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2304162b'/><text x='50' y='67' font-family='Georgia,serif' font-size='36' font-weight='500' text-anchor='middle' fill='white' letter-spacing='2'>EP</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #04162b;
+  --navy2: #0b2545;
+  --navy3: #134074;
+  --blue: #1a6aad;
+  --blue-light: #3b8fcc;
+  --gold: #c9a84c;
+  --gold-light: #e8c96e;
+  --cream: #f5f0e8;
+  --white: #ffffff;
+  --gray1: #f8f9fc;
+  --gray2: #e8ecf2;
+  --gray3: #9aa5b8;
+  --gray4: #5a6478;
+  --text: #0d1b2e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  font-weight: 300;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* CURSOR */
+.cursor {
+  width: 10px; height: 10px;
+  background: var(--navy); border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transition: transform 0.15s var(--ease), background 0.2s;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid var(--navy); border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9998;
+  transition: transform 0.35s var(--ease), width 0.3s, height 0.3s, opacity 0.3s, border-color 0.2s;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+}
+.cursor.hovered { transform: translate(-50%, -50%) scale(2.5); background: var(--gold); }
+.cursor-ring.hovered { width: 60px; height: 60px; border-color: var(--gold); opacity: 0.3; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 3rem; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray2);
+}
+.logo-mark {
+  font-family: var(--serif); font-size: 18px; font-weight: 500;
+  color: var(--navy); letter-spacing: 2px;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-circle {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--navy); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; letter-spacing: 1px;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 12px; font-weight: 400; color: var(--gray4);
+  text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.3s var(--ease);
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-links a:hover::after { width: 100%; }
+.lang-toggle {
+  display: flex; align-items: center; gap: 2px;
+  background: var(--gray1); border: 1px solid var(--gray2);
+  border-radius: 20px; padding: 3px;
+}
+.lang-btn {
+  font-size: 11px; font-weight: 500; padding: 5px 12px;
+  border-radius: 16px; border: none; background: transparent;
+  color: var(--gray3); cursor: none; transition: all 0.25s;
+  font-family: var(--sans); letter-spacing: 1px;
+}
+.lang-btn.active { background: var(--navy); color: white; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+}
+.hero-left {
+  background: var(--navy);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 4rem 80px 3rem;
+  position: relative; z-index: 1;
+}
+.hero-left::after {
+  content: ''; position: absolute; top: 0; right: -1px; bottom: 0;
+  width: 80px; background: var(--navy);
+  clip-path: polygon(0 0, 0 100%, 100% 100%); z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px; color: var(--gold);
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp 0.8s var(--ease) 0.2s forwards;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 400; color: white; line-height: 1.1; margin-bottom: 2rem;
+  opacity: 0; animation: fadeUp 0.8s var(--ease) 0.35s forwards;
+}
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-desc {
+  font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.65);
+  line-height: 1.85; max-width: 420px; margin-bottom: 3rem;
+  opacity: 0; animation: fadeUp 0.8s var(--ease) 0.5s forwards;
+}
+.hero-ctas {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.8s var(--ease) 0.65s forwards;
+}
+.btn-gold {
+  padding: 14px 32px; background: var(--gold); color: var(--navy);
+  border: none; border-radius: 3px; font-family: var(--sans);
+  font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; transition: background 0.2s, transform 0.2s; cursor: none;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline-white {
+  padding: 14px 32px; background: transparent; color: white;
+  border: 1px solid rgba(255,255,255,0.25); border-radius: 3px;
+  font-family: var(--sans); font-size: 12px; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s; cursor: none;
+}
+.btn-outline-white:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+.hero-left .deco {
+  position: absolute; top: 50%; right: 2rem; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.deco-line {
+  height: 1px; background: rgba(255,255,255,0.1);
+  animation: lineGrow 1.2s var(--ease) forwards;
+  transform-origin: left; transform: scaleX(0);
+}
+.deco-line:nth-child(1) { width: 40px; animation-delay: 0.9s; }
+.deco-line:nth-child(2) { width: 24px; animation-delay: 1.0s; }
+.deco-line:nth-child(3) { width: 32px; animation-delay: 1.1s; }
+.hero-right {
+  background: var(--cream);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 3rem 80px 5rem; position: relative;
+}
+.hero-stat-stack { display: flex; flex-direction: column; gap: 1.5rem; }
+.hstat {
+  display: flex; align-items: flex-start; gap: 1.5rem;
+  padding: 1.5rem; background: white;
+  border-radius: 6px; border: 1px solid var(--gray2);
+  position: relative; overflow: hidden;
+  opacity: 0; animation: fadeLeft 0.7s var(--ease) forwards;
+}
+.hstat:nth-child(1) { animation-delay: 0.6s; }
+.hstat:nth-child(2) { animation-delay: 0.75s; }
+.hstat:nth-child(3) { animation-delay: 0.9s; }
+.hstat::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--gold);
+}
+.hstat-num {
+  font-family: var(--serif); font-size: 2.5rem; font-weight: 500;
+  color: var(--navy); line-height: 1; min-width: 72px;
+}
+.hstat-info strong {
+  display: block; font-size: 14px; font-weight: 500;
+  color: var(--navy); margin-bottom: 3px;
+}
+.hstat-info span { font-size: 13px; font-weight: 300; color: var(--gray4); }
+
+/* SECTIONS */
+.section { padding: 100px 3rem; max-width: 1200px; margin: 0 auto; }
+.divider { border: none; border-top: 1px solid var(--gray2); max-width: 1200px; margin: 0 auto; }
+.tag {
+  font-family: var(--mono); font-size: 11px; color: var(--gold);
+  letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; display: block;
+}
+.big-title {
+  font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
+}
+.big-title em { font-style: italic; color: var(--blue); }
+.sub-text {
+  font-size: 15px; font-weight: 300; color: var(--gray4);
+  max-width: 540px; line-height: 1.8; margin-bottom: 3.5rem;
+}
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ABOUT */
+.about-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 5rem; align-items: start; }
+.about-text p { font-size: 15px; font-weight: 300; color: var(--gray4); line-height: 1.9; margin-bottom: 1.2rem; }
+.about-text p strong { color: var(--navy); font-weight: 500; }
+.about-pull {
+  font-family: var(--serif); font-size: 1.35rem; font-style: italic;
+  color: var(--navy3); border-left: 2px solid var(--gold);
+  padding-left: 1.5rem; margin: 2rem 0; line-height: 1.6;
+}
+.trait-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.5rem 0; }
+.trait-pill {
+  font-size: 12px; padding: 6px 14px;
+  background: var(--cream); color: var(--navy);
+  border-radius: 20px; border: 1px solid rgba(4,22,43,0.1);
+  font-weight: 400; letter-spacing: 0.3px;
+}
+.detail-list { display: flex; flex-direction: column; }
+.drow {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 1rem 0; border-bottom: 1px solid var(--gray2); font-size: 13px;
+}
+.drow:first-child { border-top: 1px solid var(--gray2); }
+.dlabel {
+  font-family: var(--mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--gray3);
+}
+.dvalue { color: var(--navy); font-weight: 400; text-align: right; }
+.dvalue a { color: var(--blue); text-decoration: none; }
+
+/* SKILLS */
+.skills-bg { background: var(--navy); padding: 100px 3rem; }
+.skills-inner { max-width: 1200px; margin: 0 auto; }
+.skills-bg .tag { color: rgba(201,168,76,0.8); }
+.skills-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5px; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.skill-block {
+  background: var(--navy2); padding: 2rem;
+  transition: background 0.3s; position: relative; overflow: hidden;
+}
+.skill-block::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease);
+}
+.skill-block:hover { background: var(--navy3); }
+.skill-block:hover::after { transform: scaleX(1); }
+.skill-num {
+  font-family: var(--serif); font-size: 3rem; font-weight: 400;
+  color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: 1rem;
+}
+.skill-title { font-size: 14px; font-weight: 500; color: white; margin-bottom: 1rem; letter-spacing: 0.5px; }
+.stags { display: flex; flex-wrap: wrap; gap: 6px; }
+.stag {
+  font-size: 11px; padding: 4px 10px;
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.6); border-radius: 2px;
+  font-family: var(--mono); border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s, color 0.2s;
+}
+.skill-block:hover .stag { background: rgba(201,168,76,0.12); color: var(--gold-light); border-color: rgba(201,168,76,0.2); }
+
+/* EXPERIENCE TIMELINE */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px; background: var(--gray2);
+}
+.titem { position: relative; padding: 0 0 3.5rem 3rem; }
+.titem:last-child { padding-bottom: 0; }
+.titem::before {
+  content: ''; position: absolute; left: -5px; top: 6px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: white; border: 2px solid var(--gray3);
+  transition: border-color 0.3s, background 0.3s;
+}
+.titem:hover::before { border-color: var(--gold); background: var(--gold); }
+.t-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; }
+.t-date { font-family: var(--mono); font-size: 11px; color: var(--gray3); letter-spacing: 1px; }
+.t-company {
+  font-size: 11px; font-weight: 500; color: var(--blue);
+  padding: 2px 8px; background: rgba(26,106,173,0.08);
+  border-radius: 2px; letter-spacing: 0.5px;
+}
+.t-role { font-size: 16px; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; }
+.t-desc { font-size: 14px; font-weight: 300; color: var(--gray4); line-height: 1.75; margin-bottom: 1rem; max-width: 600px; }
+.t-skills { display: flex; flex-wrap: wrap; gap: 6px; }
+.tskill {
+  font-size: 11px; padding: 3px 9px;
+  background: var(--gray1); color: var(--gray4);
+  border-radius: 2px; font-family: var(--mono); border: 1px solid var(--gray2);
+}
+
+/* CREATIVE SECTION */
+.creative-section { background: var(--cream); padding: 100px 3rem; }
+.creative-inner { max-width: 1200px; margin: 0 auto; }
+.creative-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-top: 3.5rem; }
+.c-card {
+  background: white; border-radius: 6px; padding: 2rem;
+  border: 1px solid rgba(4,22,43,0.08);
+  position: relative; overflow: hidden; transition: transform 0.3s var(--ease);
+}
+.c-card:hover { transform: translateY(-4px); }
+.c-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease);
+}
+.c-card:hover::before { transform: scaleX(1); }
+.c-icon {
+  width: 48px; height: 48px; background: var(--navy); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
+}
+.c-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.c-card h3 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 0.75rem; }
+.c-card p { font-size: 13px; font-weight: 300; color: var(--gray4); line-height: 1.75; }
+.c-highlight {
+  grid-column: span 3; background: var(--navy); border-radius: 6px;
+  padding: 2.5rem; display: flex; align-items: center; gap: 3rem;
+}
+.c-highlight-text .tag { color: var(--gold); }
+.c-highlight-text h3 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 400; font-style: italic;
+  color: white; margin-bottom: 0.75rem; line-height: 1.4;
+}
+.c-highlight-text p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.75; font-weight: 300; }
+.c-highlight-pills { display: flex; flex-direction: column; gap: 8px; min-width: 220px; }
+.c-pill {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 10px 16px;
+  font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.7);
+  font-family: var(--mono); letter-spacing: 0.5px;
+}
+
+/* PROJECTS */
+.projects-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; margin-bottom: 4rem; }
+.projects-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+.pcard {
+  background: var(--white); border: 1px solid var(--gray2); border-radius: 8px;
+  overflow: hidden; transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.3s;
+  cursor: none;
+}
+.pcard:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(4,22,43,0.1); border-color: transparent; }
+.pcard-large { grid-column: span 7; }
+.pcard-sm { grid-column: span 5; }
+.pcard-med { grid-column: span 6; }
+.pcard-full { grid-column: span 12; }
+.pcard-header {
+  height: 200px; position: relative;
+  display: flex; align-items: flex-end; padding: 1.5rem; overflow: hidden;
+}
+.pcard-large .pcard-header { height: 260px; }
+.ph-navy { background: var(--navy); }
+.ph-navy2 { background: var(--navy2); }
+.ph-blue { background: var(--navy3); }
+.ph-cream { background: var(--cream); }
+.ph-pattern {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.ph-accent { position: absolute; width: 160px; height: 160px; border-radius: 50%; opacity: 0.12; }
+.ph-accent-1 { background: var(--gold); top: -40px; right: -40px; }
+.ph-accent-2 { background: var(--blue-light); bottom: -60px; left: -20px; }
+.ph-accent-3 { background: var(--gold); top: -30px; left: 50%; }
+.ph-cream .ph-pattern {
+  background-image: linear-gradient(rgba(4,22,43,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(4,22,43,0.06) 1px, transparent 1px);
+}
+.pcard-num { position: absolute; top: 1.5rem; left: 1.5rem; font-family: var(--serif); font-size: 1.2rem; color: rgba(255,255,255,0.3); }
+.pcard-badge {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 10px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); border-radius: 2px;
+}
+.code-deco {
+  position: absolute; bottom: 1rem; right: 1.5rem;
+  font-family: var(--mono); font-size: 11px; color: rgba(255,255,255,0.25); text-align: right; line-height: 1.6;
+}
+.pcard-body { padding: 1.5rem; }
+.pcard-body h3 { font-size: 16px; font-weight: 500; color: var(--navy); margin-bottom: 0.5rem; }
+.pcard-body p { font-size: 13px; font-weight: 300; color: var(--gray4); line-height: 1.7; margin-bottom: 1rem; }
+.pstack { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 1.25rem; }
+.ps { font-family: var(--mono); font-size: 10px; padding: 3px 8px; background: var(--gray1); color: var(--gray4); border-radius: 2px; border: 1px solid var(--gray2); }
+.plink { font-size: 12px; font-weight: 500; color: var(--blue); text-decoration: none; letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+.plink:hover { gap: 10px; }
+
+/* EDUCATION */
+.edu-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.edu-card {
+  border: 1px solid var(--gray2); border-radius: 6px; padding: 2rem;
+  position: relative; overflow: hidden; transition: border-color 0.3s;
+}
+.edu-card:hover { border-color: var(--gold); }
+.edu-card .year-bg {
+  position: absolute; right: -10px; bottom: -20px;
+  font-family: var(--serif); font-size: 6rem; font-weight: 500;
+  color: var(--gray1); line-height: 1; pointer-events: none; user-select: none;
+}
+.edu-degree { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.edu-card h3 { font-size: 15px; font-weight: 500; color: var(--navy); margin-bottom: 0.25rem; }
+.edu-school { font-size: 13px; color: var(--gray3); margin-bottom: 1rem; }
+.edu-desc { font-size: 13px; font-weight: 300; color: var(--gray4); line-height: 1.7; }
+
+/* CONTACT */
+.contact-bg { background: var(--navy); }
+.contact-inner {
+  max-width: 1200px; margin: 0 auto; padding: 100px 3rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+}
+.contact-left .tag { color: rgba(201,168,76,0.8); }
+.contact-left .big-title { color: white; }
+.contact-left .sub-text { color: rgba(255,255,255,0.55); }
+.c-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.clink {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.25rem; background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 4px;
+  text-decoration: none; transition: background 0.2s, border-color 0.2s; cursor: none;
+}
+.clink:hover { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3); }
+.clink-icon { width: 38px; height: 38px; background: rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.clink-icon svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 1.5; }
+.clink .lbl { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; font-family: var(--mono); }
+.clink .val { font-size: 14px; color: white; font-weight: 300; }
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.cform-group { display: flex; flex-direction: column; gap: 6px; }
+.cform-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.cform-input {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px; padding: 14px 16px; color: white;
+  font-family: var(--sans); font-size: 14px; font-weight: 300; outline: none;
+  transition: border-color 0.2s;
+}
+.cform-input::placeholder { color: rgba(255,255,255,0.25); }
+.cform-input:focus { border-color: var(--gold); }
+textarea.cform-input { min-height: 130px; resize: none; }
+.btn-send {
+  margin-top: 0.5rem; padding: 14px 32px;
+  background: var(--gold); color: var(--navy); border: none; border-radius: 3px;
+  font-family: var(--sans); font-size: 12px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase; cursor: none; align-self: flex-start;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-send:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* FOOTER */
+footer {
+  background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo { font-family: var(--serif); font-size: 14px; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); font-family: var(--mono); }
+
+/* LANG */
+.lang-en .ro { display: none !important; }
+.lang-ro .en { display: none !important; }
+
+/* SCROLL PROGRESS BAR */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: var(--gold); z-index: 9999;
+  width: 0%; transition: width 0.1s linear;
+}
+
+/* BACK TO TOP */
+.back-to-top {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 8000;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--navy); border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease), background 0.2s;
+  transform: translateY(10px);
+}
+.back-to-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
+.back-to-top:hover { background: var(--navy3); }
+.back-to-top svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.7); fill: none; stroke-width: 2; }
+
+/* CERTIFICATIONS */
+.cert-list { margin-top: 3rem; }
+.cert-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 2rem; padding: 1.1rem 0;
+  border-bottom: 1px solid var(--gray2);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.cert-row:first-child { border-top: 1px solid var(--gray2); }
+.cert-row:hover .cert-row-name { color: var(--blue); }
+.cert-row-left { display: flex; align-items: baseline; gap: 1.25rem; flex: 1; min-width: 0; }
+.cert-row-name { font-size: 14px; font-weight: 400; color: var(--navy); transition: color 0.2s; }
+.cert-row-issuer { font-family: var(--mono); font-size: 10px; color: var(--gray3); letter-spacing: 1px; white-space: nowrap; }
+.cert-row-date { font-family: var(--mono); font-size: 10px; color: var(--gray3); letter-spacing: 1px; white-space: nowrap; flex-shrink: 0; }
+.cert-extra .cert-row:first-child { border-top: none; }
+.cert-toggle {
+  margin-top: 1.25rem; background: none; border: 1px solid var(--gray2);
+  border-radius: 3px; padding: 10px 24px; font-family: var(--mono);
+  font-size: 11px; letter-spacing: 1.5px; color: var(--gray4);
+  cursor: pointer; transition: border-color 0.2s, color 0.2s;
+}
+.cert-toggle:hover { border-color: var(--gold); color: var(--navy); }
+
+@media (max-width: 900px) {
+  .cert-row { flex-wrap: wrap; gap: 0.5rem; }
+  .cert-row-left { flex-direction: column; gap: 0.25rem; }
+  .back-to-top { bottom: 1.5rem; right: 1.5rem; }
+}
+
+/* MARKETING SECTION */
+.marketing-section { padding: 100px 3rem; background: var(--white); }
+.marketing-inner { max-width: 1200px; margin: 0 auto; }
+.dual-banner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--gray2); border-radius: 8px;
+  overflow: hidden; margin-bottom: 3.5rem;
+}
+.dual-side {
+  padding: 3rem;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.dual-side.code-side { background: var(--navy); }
+.dual-side.mkt-side { background: var(--cream); }
+.dual-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 0.25rem;
+}
+.code-side .dual-label { color: var(--gold); }
+.mkt-side .dual-label { color: var(--blue); }
+.dual-side h3 {
+  font-family: var(--serif); font-size: 1.6rem; font-weight: 400; line-height: 1.2;
+}
+.code-side h3 { color: white; }
+.mkt-side h3 { color: var(--navy); }
+.dual-side p { font-size: 13px; font-weight: 300; line-height: 1.8; }
+.code-side p { color: rgba(255,255,255,0.55); }
+.mkt-side p { color: var(--gray4); }
+.dual-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+.dual-pill {
+  font-family: var(--mono); font-size: 10px; padding: 4px 10px;
+  border-radius: 2px; letter-spacing: 0.5px;
+}
+.code-side .dual-pill { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.1); }
+.mkt-side .dual-pill { background: white; color: var(--navy); border: 1px solid rgba(4,22,43,0.1); }
+
+.mkt-platforms {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.mkt-card {
+  padding: 2rem; background: var(--navy); border-radius: 6px;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s var(--ease), background 0.3s;
+}
+.mkt-card:hover { transform: translateY(-4px); background: var(--navy2); }
+.mkt-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.mkt-card:hover::after { transform: scaleX(1); }
+.mkt-num {
+  font-family: var(--serif); font-size: 2.5rem; font-weight: 400;
+  color: rgba(255,255,255,0.25); line-height: 1; margin-bottom: 1.25rem;
+}
+.mkt-icon {
+  width: 44px; height: 44px; border-radius: 6px; margin-bottom: 1.25rem;
+  background: rgba(255,255,255,0.07);
+  display: flex; align-items: center; justify-content: center;
+}
+.mkt-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.mkt-card h4 { font-size: 14px; font-weight: 500; color: white; margin-bottom: 0.75rem; letter-spacing: 0.3px; }
+.mkt-card p { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.75; }
+
+@media (max-width: 900px) {
+  .dual-banner { grid-template-columns: 1fr; }
+  .mkt-platforms { grid-template-columns: 1fr; }
+  .marketing-section { padding: 70px 1.5rem; }
+}
+
+/* LINKEDIN BANNER */
+.linkedin-banner {
+  background: var(--cream); border-top: 1px solid var(--gray2);
+  padding: 80px 3rem;
+}
+.linkedin-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 4rem; align-items: center;
+}
+.linkedin-text h2 {
+  font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400; color: var(--navy); line-height: 1.2;
+  margin: 0.75rem 0 1rem;
+}
+.linkedin-text h2 em { font-style: italic; color: var(--blue); }
+.linkedin-text p { font-size: 14px; font-weight: 300; color: var(--gray4); line-height: 1.8; max-width: 480px; }
+.linkedin-action { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.btn-linkedin {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px; background: var(--navy); color: white;
+  border-radius: 3px; text-decoration: none;
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  letter-spacing: 1px; white-space: nowrap;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease), gap 0.25s;
+}
+.btn-linkedin:hover { background: var(--navy3); transform: translateY(-2px); gap: 14px; }
+.linkedin-note {
+  font-family: var(--mono); font-size: 10px; color: var(--gray3);
+  letter-spacing: 1px; text-align: center;
+}
+@media (max-width: 900px) {
+  .linkedin-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .linkedin-action { align-items: flex-start; }
+  .linkedin-banner { padding: 60px 1.5rem; }
+}
+
+/* GDPR COOKIE BANNER */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9000;
+  background: var(--navy); border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 1.25rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+  transform: translateY(0); transition: transform 0.4s var(--ease);
+}
+.cookie-banner.hidden { transform: translateY(110%); }
+.cookie-text { font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 300; line-height: 1.6; flex: 1; min-width: 200px; }
+.cookie-text a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+.cookie-actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+.btn-cookie-accept {
+  padding: 9px 22px; background: var(--gold); color: var(--navy);
+  border: none; border-radius: 3px; font-family: var(--sans);
+  font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+}
+.btn-cookie-accept:hover { background: var(--gold-light); }
+.btn-cookie-decline {
+  padding: 9px 22px; background: transparent; color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 3px;
+  font-family: var(--sans); font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer; transition: border-color 0.2s, color 0.2s;
+}
+.btn-cookie-decline:hover { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.8); }
+
+/* PRIVACY MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 9500;
+  background: rgba(4,22,43,0.85); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: var(--white); border-radius: 8px;
+  max-width: 680px; width: 100%; max-height: 80vh;
+  overflow-y: auto; padding: 3rem;
+  transform: translateY(20px); transition: transform 0.3s var(--ease);
+}
+.modal-overlay.open .modal-box { transform: translateY(0); }
+.modal-box h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--navy); margin-bottom: 0.5rem; }
+.modal-box .modal-date { font-family: var(--mono); font-size: 11px; color: var(--gray3); letter-spacing: 2px; margin-bottom: 2rem; display: block; }
+.modal-box h3 { font-size: 13px; font-weight: 600; color: var(--navy); margin: 1.5rem 0 0.4rem; text-transform: uppercase; letter-spacing: 1px; }
+.modal-box p, .modal-box li { font-size: 13px; font-weight: 300; color: var(--gray4); line-height: 1.8; }
+.modal-box ul { padding-left: 1.2rem; margin: 0.4rem 0; }
+.modal-box a { color: var(--blue); }
+.modal-close {
+  position: sticky; top: 0; float: right; margin: -1rem -1rem 1rem 1rem;
+  background: var(--gray1); border: 1px solid var(--gray2); border-radius: 4px;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 18px; color: var(--gray4); line-height: 1;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: var(--gray2); }
+
+/* CONSENT CHECKBOX */
+.cform-consent {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.55);
+  line-height: 1.6; margin-top: 0.25rem;
+}
+.cform-consent input[type="checkbox"] {
+  width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px;
+  accent-color: var(--gold); cursor: pointer;
+}
+.cform-consent a { color: var(--gold); text-decoration: underline; cursor: pointer; }
+
+/* KEYFRAMES */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeLeft { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes lineGrow { to { transform: scaleX(1); } }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--gray1); }
+::-webkit-scrollbar-thumb { background: var(--navy3); border-radius: 2px; }
+
+/* HAMBURGER */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+  transition: transform 0.3s var(--ease), opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; top: 72px; left: 0; right: 0;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray2); z-index: 99;
+  padding: 1.5rem 2rem; flex-direction: column; gap: 1.25rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 14px; font-weight: 400; color: var(--gray4);
+  text-decoration: none; letter-spacing: 2px; text-transform: uppercase;
+  padding: 0.5rem 0; border-bottom: 1px solid var(--gray2);
+}
+.mobile-menu a:hover { color: var(--navy); }
+
+@media (max-width: 900px) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left::after { display: none; }
+  .hero-right { padding: 3rem; }
+  .about-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .creative-grid { grid-template-columns: 1fr; }
+  .c-highlight { flex-direction: column; gap: 2rem; }
+  .c-highlight-pills { flex-direction: row; flex-wrap: wrap; min-width: auto; }
+  .edu-layout { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .pcard-large, .pcard-sm, .pcard-med, .pcard-full { grid-column: span 1; }
+  .c-highlight { grid-column: span 1; }
+  .projects-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .section { padding: 70px 1.5rem; }
+  .skills-bg, .creative-section { padding: 70px 1.5rem; }
+  .contact-inner { padding: 70px 1.5rem; }
+}
+</style>
+</head>
+<body class="lang-en">
+
+<div class="progress-bar" id="progressBar"></div>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p class="cookie-text">
+    <span class="en">This site uses Google Fonts, which may transfer your IP address to Google's servers (EU/US). The contact form is processed by Formspree. No tracking cookies are used. <a onclick="openPrivacy()">Privacy Policy</a></span>
+    <span class="ro">Acest site folosește Google Fonts, care poate transfera adresa ta IP către serverele Google (UE/SUA). Formularul de contact este procesat prin Formspree. Nu se folosesc cookie-uri de urmărire. <a onclick="openPrivacy()">Politica de confidențialitate</a></span>
+  </p>
+  <div class="cookie-actions">
+    <button class="btn-cookie-decline" onclick="declineCookies()"><span class="en">Decline</span><span class="ro">Refuz</span></button>
+    <button class="btn-cookie-accept" onclick="acceptCookies()"><span class="en">Accept</span><span class="ro">Accept</span></button>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY MODAL -->
+<div class="modal-overlay" id="privacyModal" onclick="closePrivacyOutside(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closePrivacy()">&#215;</button>
+    <div class="en">
+      <h2>Privacy Policy</h2>
+      <span class="modal-date">Last updated: April 2026</span>
+      <h3>1. Data Controller</h3>
+      <p>Emilia Pop - <a href="mailto:pop.emilia.alexandra@icloud.com">pop.emilia.alexandra@icloud.com</a><br>This is a personal portfolio website.</p>
+      <h3>2. Data Collected</h3>
+      <p>This website collects personal data only when you voluntarily submit the contact form:</p>
+      <ul>
+        <li>Name</li>
+        <li>Email address</li>
+        <li>Subject and message</li>
+      </ul>
+      <p>No cookies, tracking pixels, or analytics tools are used by this site.</p>
+      <h3>3. Third-Party Services</h3>
+      <p><strong>Google Fonts:</strong> Fonts are loaded from Google's servers. This may involve transferring your IP address to Google (US). Legal basis: legitimate interest (website functionality). You can block this via your browser settings.<br><br>
+      <strong>Formspree:</strong> Contact form submissions are processed by Formspree Inc. Your data is transmitted securely. See <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Formspree's Privacy Policy</a>.</p>
+      <h3>4. Purpose and Legal Basis</h3>
+      <p>Contact form data is processed to respond to your inquiry. Legal basis: your explicit consent (Art. 6(1)(a) GDPR).</p>
+      <h3>5. Data Retention</h3>
+      <p>Form submissions are retained only as long as necessary to respond. You may request deletion at any time.</p>
+      <h3>6. Your Rights (GDPR)</h3>
+      <ul>
+        <li>Right of access (Art. 15)</li>
+        <li>Right to rectification (Art. 16)</li>
+        <li>Right to erasure (Art. 17)</li>
+        <li>Right to restriction of processing (Art. 18)</li>
+        <li>Right to data portability (Art. 20)</li>
+        <li>Right to object (Art. 21)</li>
+      </ul>
+      <p>To exercise your rights, contact: <a href="mailto:pop.emilia.alexandra@icloud.com">pop.emilia.alexandra@icloud.com</a></p>
+      <h3>7. Supervisory Authority</h3>
+      <p>You have the right to lodge a complaint with the Romanian data protection authority: <strong>ANSPDCP</strong> - <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">dataprotection.ro</a></p>
+    </div>
+    <div class="ro">
+      <h2>Politica de Confidențialitate</h2>
+      <span class="modal-date">Ultima actualizare: Aprilie 2026</span>
+      <h3>1. Operator de date</h3>
+      <p>Emilia Pop - <a href="mailto:pop.emilia.alexandra@icloud.com">pop.emilia.alexandra@icloud.com</a><br>Acesta este un site personal de portofoliu.</p>
+      <h3>2. Date colectate</h3>
+      <p>Site-ul colectează date personale doar când completezi voluntar formularul de contact:</p>
+      <ul>
+        <li>Nume</li>
+        <li>Adresă de email</li>
+        <li>Subiect și mesaj</li>
+      </ul>
+      <p>Nu se folosesc cookie-uri, pixeli de urmărire sau instrumente de analiză.</p>
+      <h3>3. Servicii terțe</h3>
+      <p><strong>Google Fonts:</strong> Fonturile sunt încărcate de pe serverele Google, ceea ce poate implica transferul adresei tale IP către Google (SUA). Temei legal: interes legitim (funcționalitatea site-ului). Poți bloca acest lucru din setările browserului.<br><br>
+      <strong>Formspree:</strong> Trimiterile din formularul de contact sunt procesate de Formspree Inc. Datele sunt transmise în siguranță. Vezi <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Politica de confidențialitate Formspree</a>.</p>
+      <h3>4. Scop și temei legal</h3>
+      <p>Datele din formularul de contact sunt procesate pentru a răspunde solicitărilor tale. Temei legal: consimțământul tău explicit (Art. 6(1)(a) GDPR).</p>
+      <h3>5. Retenția datelor</h3>
+      <p>Trimiterile din formular sunt păstrate doar atât cât este necesar pentru a răspunde. Poți solicita ștergerea oricând.</p>
+      <h3>6. Drepturile tale (GDPR)</h3>
+      <ul>
+        <li>Drept de acces (Art. 15)</li>
+        <li>Drept la rectificare (Art. 16)</li>
+        <li>Drept la ștergere (Art. 17)</li>
+        <li>Drept la restricționarea prelucrării (Art. 18)</li>
+        <li>Drept la portabilitatea datelor (Art. 20)</li>
+        <li>Drept la opoziție (Art. 21)</li>
+      </ul>
+      <p>Pentru a-ți exercita drepturile: <a href="mailto:pop.emilia.alexandra@icloud.com">pop.emilia.alexandra@icloud.com</a></p>
+      <h3>7. Autoritatea de supraveghere</h3>
+      <p>Ai dreptul să depui o plângere la autoritatea română de protecție a datelor: <strong>ANSPDCP</strong> - <a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">dataprotection.ro</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo-mark">
+    <div class="logo-circle">EP</div>
+    Emilia Pop
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about"><span class="en">About</span><span class="ro">Despre</span></a></li>
+    <li><a href="#skills"><span class="en">Skills</span><span class="ro">Abilități</span></a></li>
+    <li><a href="#experience"><span class="en">Experience</span><span class="ro">Experiență</span></a></li>
+    <li><a href="#marketing"><span class="en">Marketing</span><span class="ro">Marketing</span></a></li>
+    <li><a href="#projects"><span class="en">Projects</span><span class="ro">Proiecte</span></a></li>
+    <li><a href="#certifications"><span class="en">Certifications</span><span class="ro">Certificări</span></a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+    <button class="lang-btn" onclick="setLang('ro',this)">RO</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()"><span class="en">About</span><span class="ro">Despre</span></a>
+  <a href="#certifications" onclick="closeMenu()"><span class="en">Certifications</span><span class="ro">Certificări</span></a>
+  <a href="#marketing" onclick="closeMenu()">Marketing</a>
+  <a href="#skills" onclick="closeMenu()"><span class="en">Skills</span><span class="ro">Abilități</span></a>
+  <a href="#experience" onclick="closeMenu()"><span class="en">Experience</span><span class="ro">Experiență</span></a>
+  <a href="#projects" onclick="closeMenu()"><span class="en">Projects</span><span class="ro">Proiecte</span></a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow en">Masterdata Analyst | Timișoara, Romania</p>
+    <p class="hero-eyebrow ro">Analist Masterdata | Timișoara, România</p>
+    <h1 class="en">Data<br>meets<br><em>creativity.</em></h1>
+    <h1 class="ro">Date<br>întâlnesc<br><em>creativitatea.</em></h1>
+    <p class="hero-desc en">I bridge business and technology, from enterprise data management to building web applications and AI-powered tools. Master's in Business Information Systems. Passionate about precision, creativity and AI collaboration.</p>
+    <p class="hero-desc ro">Leg business-ul de tehnologie, de la gestionarea datelor la nivel enterprise la construirea aplicațiilor web și instrumentelor AI. Master în Sisteme Informatice de Afaceri. Pasionată de precizie, creativitate și colaborare cu AI.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-gold en">View Projects</a>
+      <a href="#projects" class="btn-gold ro">Vezi Proiecte</a>
+      <a href="#contact" class="btn-outline-white en">Get in touch</a>
+      <a href="#contact" class="btn-outline-white ro">Contactează-mă</a>
+    </div>
+    <div class="deco">
+      <div class="deco-line"></div>
+      <div class="deco-line"></div>
+      <div class="deco-line"></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-stack">
+      <div class="hstat">
+        <div class="hstat-num">2.5+</div>
+        <div class="hstat-info">
+          <strong><span class="en">Years of experience</span><span class="ro">Ani de experiență</span></strong>
+          <span><span class="en">Audit, masterdata and web development</span><span class="ro">Audit, masterdata și web development</span></span>
+        </div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">9+</div>
+        <div class="hstat-info">
+          <strong><span class="en">Certifications</span><span class="ro">Certificări</span></strong>
+          <span><span class="en">Data, AI and analytics, continuous learning</span><span class="ro">Date, AI și analiză, învățare continuă</span></span>
+        </div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">100%</div>
+        <div class="hstat-info">
+          <strong><span class="en">Detail oriented</span><span class="ro">Atenție la detalii</span></strong>
+          <span><span class="en">Perfectionist by nature, creative by choice</span><span class="ro">Perfecționistă prin natură, creativă prin alegere</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-layout">
+    <div>
+      <span class="tag reveal en">About me</span>
+      <span class="tag reveal ro">Despre mine</span>
+      <h2 class="big-title reveal reveal-delay-1 en">Where data meets <em>creativity</em></h2>
+      <h2 class="big-title reveal reveal-delay-1 ro">Unde datele întâlnesc <em>creativitatea</em></h2>
+      <div class="about-text reveal reveal-delay-2">
+        <p class="en">I'm Emilia, a <strong>Masterdata Analyst at Ahold Delhaize Mega Image Group Romania</strong>, currently pursuing a Master's in Business Information Systems at FEAA Timișoara. I combine analytical precision with a genuine passion for building elegant, purposeful solutions.</p>
+        <p class="ro">Sunt Emilia, <strong>Analist Masterdata la Ahold Delhaize Mega Image Group România</strong>, urmând un Master în Sisteme Informatice de Afaceri la FEAA Timișoara. Combin precizia analitică cu o pasiune autentică pentru construirea de soluții elegante și bine gândite.</p>
+        <blockquote class="about-pull en">"I don't just analyze data, I build the tools that make data meaningful."</blockquote>
+        <blockquote class="about-pull ro">"Nu doar analizez datele, construiesc uneltele care le fac relevante."</blockquote>
+        <p class="en">My background spans <strong>financial audit at Ernst &amp; Young</strong>, enterprise masterdata management, web application development, and digital marketing. I love working with AI to ideate, prototype and build faster, combining economic thinking with creative problem-solving.</p>
+        <p class="ro">Parcursul meu cuprinde <strong>audit financiar la Ernst &amp; Young</strong>, gestionare masterdata, dezvoltare aplicații web și marketing digital. Îmi place să lucrez cu AI pentru a prototipa și construi mai rapid, combinând gândirea economică cu rezolvarea creativă a problemelor.</p>
+        <div class="trait-pills">
+          <span class="trait-pill en">Perfectionist</span><span class="trait-pill ro">Perfecționistă</span>
+          <span class="trait-pill en">Creative</span><span class="trait-pill ro">Creativă</span>
+          <span class="trait-pill en">Analytical</span><span class="trait-pill ro">Analitică</span>
+          <span class="trait-pill en">Detail-oriented</span><span class="trait-pill ro">Orientată spre detalii</span>
+          <span class="trait-pill en">Goal-driven</span><span class="trait-pill ro">Orientată spre rezultate</span>
+          <span class="trait-pill en">AI collaborator</span><span class="trait-pill ro">Colaboratoare AI</span>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="detail-list">
+        <div class="drow">
+          <span class="dlabel"><span class="en">Location</span><span class="ro">Locație</span></span>
+          <span class="dvalue">Timișoara, România</span>
+        </div>
+        <div class="drow">
+          <span class="dlabel"><span class="en">Current role</span><span class="ro">Rol actual</span></span>
+          <span class="dvalue">Masterdata Analyst @ Ahold Delhaize</span>
+        </div>
+        <div class="drow">
+          <span class="dlabel"><span class="en">Education</span><span class="ro">Educație</span></span>
+          <span class="dvalue"><span class="en">MSc Business Information Systems</span><span class="ro">Master Sisteme Informatice</span></span>
+        </div>
+        <div class="drow">
+          <span class="dlabel"><span class="en">Prev. experience</span><span class="ro">Exp. anterioară</span></span>
+          <span class="dvalue">Ernst &amp; Young | Profi Rom Food</span>
+        </div>
+        <div class="drow">
+          <span class="dlabel"><span class="en">Languages</span><span class="ro">Limbi</span></span>
+          <span class="dvalue"><span class="en">Romanian | English | German</span><span class="ro">Română | Engleză | Germană</span></span>
+        </div>
+        <div class="drow">
+          <span class="dlabel">LinkedIn</span>
+          <span class="dvalue"><a href="https://www.linkedin.com/in/emilia-pop/" target="_blank" rel="noopener noreferrer">/in/emilia-pop</a></span>
+        </div>
+        <div class="drow">
+          <span class="dlabel">GitHub</span>
+          <span class="dvalue"><a href="https://github.com/Pop-Emilia" target="_blank" rel="noopener noreferrer">/Pop-Emilia</a></span>
+        </div>
+        <div class="drow">
+          <span class="dlabel"><span class="en">Interests</span><span class="ro">Interese</span></span>
+          <span class="dvalue"><span class="en">Data Analytics, AI Agents, Digital Marketing</span><span class="ro">Analiză Date, Agenți AI, Marketing Digital</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- LINKEDIN BANNER -->
+<div class="linkedin-banner">
+  <div class="linkedin-inner">
+    <div class="linkedin-text reveal">
+      <span class="tag en" style="color:var(--gold);">Still reading?</span>
+      <span class="tag ro" style="color:var(--gold);">Încă citești?</span>
+      <h2 class="en">That means we might<br>be a good <em>match.</em></h2>
+      <h2 class="ro">Asta înseamnă că s-ar<br>putea să ne <em>potrivim.</em></h2>
+      <p class="en">I'm always open to interesting conversations, new opportunities and people who think differently. Let's connect - it takes 10 seconds.</p>
+      <p class="ro">Sunt mereu deschisă la conversații interesante, oportunități noi și oameni care gândesc altfel. Hai să ne conectăm - durează 10 secunde.</p>
+    </div>
+    <div class="linkedin-action reveal reveal-delay-2">
+      <a href="https://www.linkedin.com/in/emilia-pop/" target="_blank" rel="noopener noreferrer" class="btn-linkedin">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <span class="en">Connect on LinkedIn</span>
+        <span class="ro">Conectează-te pe LinkedIn</span>
+      </a>
+      <p class="linkedin-note en">Already 500+ connections. One more wouldn't hurt.</p>
+      <p class="linkedin-note ro">Deja 500+ conexiuni. Una în plus nu strică.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-bg" id="skills">
+  <div class="skills-inner">
+    <span class="tag reveal en">Skills and tools</span>
+    <span class="tag reveal ro">Abilități și instrumente</span>
+    <h2 class="big-title reveal reveal-delay-1" style="color:white; margin-bottom:3rem;"><span class="en">What I work with</span><span class="ro">Cu ce lucrez</span></h2>
+    <div class="skills-grid">
+      <div class="skill-block reveal">
+        <div class="skill-num">01</div>
+        <div class="skill-title"><span class="en">Web Development</span><span class="ro">Dezvoltare Web</span></div>
+        <div class="stags">
+          <span class="stag">HTML</span><span class="stag">CSS</span><span class="stag">JavaScript</span>
+          <span class="stag">Python</span><span class="stag">PHP</span><span class="stag">Bootstrap</span>
+          <span class="stag">VS Code</span><span class="stag">XAMPP</span>
+        </div>
+      </div>
+      <div class="skill-block reveal reveal-delay-1">
+        <div class="skill-num">02</div>
+        <div class="skill-title"><span class="en">Data and Analytics</span><span class="ro">Date și Analiză</span></div>
+        <div class="stags">
+          <span class="stag">SQL</span><span class="stag">Power BI</span><span class="stag">Excel</span>
+          <span class="stag">Oracle Data Finance</span><span class="stag">Masterdata</span>
+          <span class="stag">Supabase</span><span class="stag">Postman</span>
+          <span class="stag"><span class="en">Analytical Thinking</span><span class="ro">Gândire Analitică</span></span>
+        </div>
+      </div>
+      <div class="skill-block reveal reveal-delay-2">
+        <div class="skill-num">03</div>
+        <div class="skill-title"><span class="en">AI and Creative Tech</span><span class="ro">AI și Tehnologie Creativă</span></div>
+        <div class="stags">
+          <span class="stag">Vibe Coding</span><span class="stag">AI Agents</span>
+          <span class="stag">Claude AI</span><span class="stag">Prompt Engineering</span>
+          <span class="stag">Machine Learning</span>
+        </div>
+      </div>
+      <div class="skill-block reveal reveal-delay-3">
+        <div class="skill-num">04</div>
+        <div class="skill-title"><span class="en">Digital Marketing and Design</span><span class="ro">Marketing Digital și Design</span></div>
+        <div class="stags">
+          <span class="stag">Google Ads</span><span class="stag">Google Merchant</span>
+          <span class="stag">E-commerce</span><span class="stag">Banner Design</span>
+          <span class="stag"><span class="en">Page Management</span><span class="ro">Administrare Pagini</span></span>
+          <span class="stag"><span class="en">Campaigns</span><span class="ro">Campanii</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <span class="tag reveal en">Experience</span>
+  <span class="tag reveal ro">Experiență</span>
+  <h2 class="big-title reveal reveal-delay-1 en">Professional journey</h2>
+  <h2 class="big-title reveal reveal-delay-1 ro">Parcurs profesional</h2>
+  <p class="sub-text reveal reveal-delay-2 en">From audit intern to masterdata analyst, a path shaped by curiosity, precision, and a love for systems thinking.</p>
+  <p class="sub-text reveal reveal-delay-2 ro">De la intern în audit la analist masterdata, un parcurs modelat de curiozitate, precizie și pasiunea pentru gândirea sistemică.</p>
+  <div class="timeline">
+    <div class="titem reveal">
+      <div class="t-meta">
+        <span class="t-date">Apr 2026 <span class="en">to Present</span><span class="ro">la Prezent</span></span>
+        <span class="t-company">Ahold Delhaize Mega Image Group Romania</span>
+      </div>
+      <div class="t-role">Due Diligence and Supplier Masterdata Analyst</div>
+      <p class="t-desc en">Managing and maintaining supplier masterdata at enterprise level within Oracle Data Finance, ensuring data quality and integrity across international supply chains. Previously part of Profi Rom Food SRL, now absorbed into the Ahold Delhaize Mega Image Group Romania structure.</p>
+      <p class="t-desc ro">Gestionez și mențin masterdata furnizorilor la nivel enterprise în Oracle Data Finance, asigurând calitatea și integritatea datelor în lanțurile de aprovizionare internaționale. Anterior la Profi Rom Food SRL, acum parte din structura Ahold Delhaize Mega Image Group România.</p>
+      <div class="t-skills"><span class="tskill">Oracle Data Finance</span><span class="tskill">Masterdata</span><span class="tskill">Due Diligence</span><span class="tskill">Data Quality</span></div>
+    </div>
+    <div class="titem reveal reveal-delay-1">
+      <div class="t-meta">
+        <span class="t-date">Nov 2025 <span class="en">to</span><span class="ro">la</span> Apr 2026</span>
+        <span class="t-company">Profi Rom Food SRL</span>
+      </div>
+      <div class="t-role">Due Diligence and Supplier Masterdata Analyst</div>
+      <p class="t-desc en">Served as the Master Data point of contact within the Finance Department, responsible for managing and maintaining supplier data for local and international suppliers within Oracle Data Finance.</p>
+      <p class="t-desc ro">Punct de contact Masterdata în Departamentul Financiar, responsabilă pentru gestionarea și menținerea datelor furnizorilor locali și internaționali în Oracle Data Finance.</p>
+      <div class="t-skills"><span class="tskill">Oracle Data Finance</span><span class="tskill">Due Diligence</span><span class="tskill">Finance</span></div>
+    </div>
+    <div class="titem reveal reveal-delay-2">
+      <div class="t-meta">
+        <span class="t-date">Sep 2025 <span class="en">to</span><span class="ro">la</span> Oct 2025</span>
+        <span class="t-company">Ernst &amp; Young</span>
+      </div>
+      <div class="t-role">Junior Auditor Assistant</div>
+      <p class="t-desc en">Independently managed control testing, detailed data analysis, and comprehensive financial document reviews for a diverse portfolio of clients.</p>
+      <p class="t-desc ro">Gestionat independent teste de control, analize de date detaliate și revizuiri de documente financiare pentru un portofoliu divers de clienți.</p>
+      <div class="t-skills"><span class="tskill">Financial Audits</span><span class="tskill">Data Analysis</span><span class="tskill">Audit Reports</span></div>
+    </div>
+    <div class="titem reveal reveal-delay-2">
+      <div class="t-meta">
+        <span class="t-date">Sep 2024 <span class="en">to</span><span class="ro">la</span> Aug 2025</span>
+        <span class="t-company">Ernst &amp; Young</span>
+      </div>
+      <div class="t-role">Audit Intern 2</div>
+      <p class="t-desc en">Provided assistance to the audit team by performing control tests, data analysis, and financial document reviews for multiple clients, with increased responsibility compared to the previous internship.</p>
+      <p class="t-desc ro">Asistență echipei de audit cu teste de control, analize de date și revizuiri de documente financiare, cu responsabilitate crescută față de internship-ul anterior.</p>
+      <div class="t-skills"><span class="tskill">Analytic Problem Solving</span><span class="tskill">Audit Support</span></div>
+    </div>
+    <div class="titem reveal reveal-delay-3">
+      <div class="t-meta">
+        <span class="t-date">Oct 2023 <span class="en">to</span><span class="ro">la</span> Sep 2024</span>
+        <span class="t-company">Ernst &amp; Young</span>
+      </div>
+      <div class="t-role">Audit Intern</div>
+      <p class="t-desc en">Assisted the audit team with data checks, control testing, and detailed analyses for various clients, reviewing financial documents and working with databases.</p>
+      <p class="t-desc ro">Asistență echipei de audit cu verificări de date, teste de control și analize detaliate pentru diverși clienți, lucrând cu documente financiare și baze de date.</p>
+      <div class="t-skills"><span class="tskill">Accounting</span><span class="tskill">Databases</span><span class="tskill">Audit Support</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CREATIVE SECTION -->
+<div class="creative-section" id="creative">
+  <div class="creative-inner">
+    <span class="tag reveal en">Creative approach</span>
+    <span class="tag reveal ro">Abordare creativă</span>
+    <h2 class="big-title reveal reveal-delay-1 en">Building with <em>intention</em></h2>
+    <h2 class="big-title reveal reveal-delay-1 ro">Construind cu <em>intenție</em></h2>
+    <p class="sub-text reveal reveal-delay-2 en">I believe the best solutions emerge when economic thinking meets creative problem-solving, and when AI becomes a true collaborator, not just a tool.</p>
+    <p class="sub-text reveal reveal-delay-2 ro">Cred că cele mai bune soluții apar când gândirea economică întâlnește rezolvarea creativă a problemelor, și când AI devine un adevărat colaborator, nu doar un instrument.</p>
+    <div class="creative-grid">
+      <div class="c-card reveal">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3><span class="en">Analytical thinking</span><span class="ro">Gândire analitică</span></h3>
+        <p class="en">I see patterns where others see noise. My background in economic informatics and audit trained me to break down complex problems into clear, actionable structures.</p>
+        <p class="ro">Văd tipare acolo unde alții văd haos. Formarea mea în informatică economică și audit m-a antrenat să descompun probleme complexe în structuri clare și acționabile.</p>
+      </div>
+      <div class="c-card reveal reveal-delay-1">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3><span class="en">AI agents and vibe coding</span><span class="ro">Agenți AI și vibe coding</span></h3>
+        <p class="en">I build AI agents tailored to my applications and think through the prompts needed to meet each client's needs. Vibe coding is my workflow: from idea to working product, fast and precise.</p>
+        <p class="ro">Construiesc agenți AI adaptați aplicațiilor mele și gândesc prompt-urile necesare pentru a îndeplini nevoile fiecărui client. Vibe coding este fluxul meu de lucru: de la idee la produs funcțional, rapid și precis.</p>
+      </div>
+      <div class="c-card reveal reveal-delay-2">
+        <div class="c-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3><span class="en">Digital marketing and design</span><span class="ro">Marketing digital și design</span></h3>
+        <p class="en">From designing banners to running successful Google Ads and Google Merchant campaigns, I understand both the creative and analytical side of digital marketing and e-commerce.</p>
+        <p class="ro">De la realizarea bannerelor la campanii de succes în Google Ads și Google Merchant, înțeleg atât latura creativă cât și cea analitică a marketingului digital și e-commerce.</p>
+      </div>
+      <div class="c-highlight reveal">
+        <div class="c-highlight-text">
+          <span class="tag en">My approach to building applications</span>
+          <span class="tag ro">Abordarea mea în construirea aplicațiilor</span>
+          <h3 class="en">"I speak both languages: business and code."</h3>
+          <h3 class="ro">"Vorbesc ambele limbi: business și cod."</h3>
+          <p class="en">As an economist who codes, I understand what clients actually need, not just technically, but strategically. I think through the solution, craft the right prompts, build with AI, and deliver with the precision of someone who knows both the business context and the technical implementation.</p>
+          <p class="ro">Ca economistă care programează, înțeleg ce au clienții cu adevărat nevoie, nu doar tehnic, ci strategic. Gândesc soluția, creez prompt-urile potrivite, construiesc cu AI și livrez cu precizia cuiva care cunoaște atât contextul de business cât și implementarea tehnică.</p>
+        </div>
+        <div class="c-highlight-pills">
+          <div class="c-pill">Understand the problem</div>
+          <div class="c-pill">Design the solution</div>
+          <div class="c-pill">Engineer the prompts</div>
+          <div class="c-pill">Build the AI agent</div>
+          <div class="c-pill">Deliver with precision</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKETING -->
+<div class="marketing-section" id="marketing">
+  <div class="marketing-inner">
+    <span class="tag reveal en">Marketing & Code</span>
+    <span class="tag reveal ro">Marketing & Cod</span>
+    <h2 class="big-title reveal reveal-delay-1 en">Two skills,<br>one <em>mindset</em></h2>
+    <h2 class="big-title reveal reveal-delay-1 ro">Două abilități,<br>un singur <em>mod de gândire</em></h2>
+    <p class="sub-text reveal reveal-delay-2 en">I'm fluent in both languages: I can build the product and market it. That combination is rare, and it's what makes my work effective from end to end.</p>
+    <p class="sub-text reveal reveal-delay-2 ro">Vorbesc ambele limbi: pot construi produsul și pot să îl promovez. Această combinație este rară și face ca munca mea să fie eficientă de la cap la coadă.</p>
+
+    <div class="dual-banner reveal reveal-delay-3">
+      <div class="dual-side code-side">
+        <span class="dual-label en">Development</span>
+        <span class="dual-label ro">Dezvoltare</span>
+        <h3 class="en">I build what<br>I imagine.</h3>
+        <h3 class="ro">Construiesc<br>ce imaginez.</h3>
+        <p class="en">From database design to front-end interfaces, I develop complete web applications, independently, with precision and attention to detail.</p>
+        <p class="ro">De la designul bazelor de date la interfețe front-end, dezvolt aplicații web complete, independent, cu precizie și atenție la detalii.</p>
+        <div class="dual-pills">
+          <span class="dual-pill">HTML / CSS</span>
+          <span class="dual-pill">JavaScript</span>
+          <span class="dual-pill">PHP</span>
+          <span class="dual-pill">SQL</span>
+          <span class="dual-pill">Python</span>
+          <span class="dual-pill">AI Agents</span>
+        </div>
+      </div>
+      <div class="dual-side mkt-side">
+        <span class="dual-label en">Digital Marketing</span>
+        <span class="dual-label ro">Marketing Digital</span>
+        <h3 class="en">I promote what<br>I understand.</h3>
+        <h3 class="ro">Promovez ce<br>înțeleg.</h3>
+        <p class="en">Understanding the product I'm marketing gives me an edge. I craft campaigns with the logic of a developer and the creativity of a marketer.</p>
+        <p class="ro">Înțelegerea produsului pe care îl promovez îmi oferă un avantaj. Construiesc campanii cu logica unui developer și creativitatea unui marketer.</p>
+        <div class="dual-pills">
+          <span class="dual-pill">Google Ads</span>
+          <span class="dual-pill">Google Merchant</span>
+          <span class="dual-pill">E-commerce</span>
+          <span class="dual-pill">Banner Design</span>
+          <span class="dual-pill">Campaigns</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mkt-platforms reveal">
+      <div class="mkt-card">
+        <div class="mkt-num">01</div>
+        <div class="mkt-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+        </div>
+        <h4>Google Ads</h4>
+        <p class="en">Search, display and shopping campaigns: from keyword research and bid strategy to ad copy and performance optimization.</p>
+        <p class="ro">Campanii de search, display și shopping: de la cercetarea cuvintelor cheie și strategia de licitare la copywriting și optimizarea performanței.</p>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-num">02</div>
+        <div class="mkt-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>Google Merchant Center</h4>
+        <p class="en">Product feed management, data quality optimization and Shopping campaign integration for e-commerce clients.</p>
+        <p class="ro">Gestionarea feed-ului de produse, optimizarea calității datelor și integrarea campaniilor Shopping pentru clienți de e-commerce.</p>
+      </div>
+      <div class="mkt-card">
+        <div class="mkt-num">03</div>
+        <div class="mkt-icon">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h4>E-commerce & Social</h4>
+        <p class="en">Page management, organic content strategy, banner design and coordinating online store presence across multiple channels.</p>
+        <p class="ro">Administrarea paginilor, strategie de conținut organic, design bannere și coordonarea prezenței magazinului online pe multiple canale.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="projects-intro">
+    <div>
+      <span class="tag reveal en">Projects</span>
+      <span class="tag reveal ro">Proiecte</span>
+      <h2 class="big-title reveal reveal-delay-1 en">Selected <em>work</em></h2>
+      <h2 class="big-title reveal reveal-delay-1 ro">Lucrări <em>selectate</em></h2>
+    </div>
+    <p class="sub-text reveal en">Academic and personal projects, each one solving a real problem with clean code, thoughtful design, and AI collaboration. Several new relevant projects are currently in progress and will be added here in the near future.</p>
+    <p class="sub-text reveal ro">Proiecte academice și personale, fiecare rezolvând o problemă reală cu cod curat, design atent și colaborare cu AI. Mai multe proiecte relevante sunt în lucru în prezent și vor fi adăugate aici în viitorul apropiat.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="pcard pcard-large reveal">
+      <div class="pcard-header ph-navy">
+        <div class="ph-pattern"></div>
+        <div class="ph-accent ph-accent-1"></div>
+        <span class="pcard-num">01</span>
+        <span class="pcard-badge">Web App</span>
+        <div class="code-deco">
+          &lt;clinic&gt;<br>
+          &nbsp;&nbsp;patients.db<br>
+          &nbsp;&nbsp;appointments/<br>
+          &lt;/clinic&gt;
+        </div>
+      </div>
+      <div class="pcard-body">
+        <h3><span class="en">Diabetes Clinic Management System</span><span class="ro">Sistem Management Clinică Diabet</span></h3>
+        <p class="en">Full web application built for my Bachelor's thesis, managing patients, appointments, and medical history for a diabetes clinic. Designed and implemented independently, received the highest grade.</p>
+        <p class="ro">Aplicație web completă construită pentru licență, gestionarea pacienților, programărilor și istoricului medical pentru o clinică de diabet. Proiectată și implementată independent, nota maximă.</p>
+        <div class="pstack"><span class="ps">PHP</span><span class="ps">HTML/CSS</span><span class="ps">JavaScript</span><span class="ps">SQL</span><span class="ps">Bootstrap</span><span class="ps">XAMPP</span></div>
+        <a href="#" class="plink"><span class="en">View details</span><span class="ro">Vezi detalii</span> &#8594;</a>
+      </div>
+    </div>
+    <div class="pcard pcard-sm reveal reveal-delay-1">
+      <div class="pcard-header ph-navy2">
+        <div class="ph-pattern"></div>
+        <div class="ph-accent ph-accent-3"></div>
+        <span class="pcard-num">02</span>
+        <span class="pcard-badge">AI + Web</span>
+        <div class="code-deco">
+          // vibe coding<br>
+          const idea = reality
+        </div>
+      </div>
+      <div class="pcard-body">
+        <h3><span class="en">This Portfolio</span><span class="ro">Acest Portofoliu</span></h3>
+        <p class="en">Designed and built collaboratively with AI, a live example of vibe coding and prompt engineering. Bilingual, animated, fully responsive.</p>
+        <p class="ro">Proiectat și construit cu AI, un exemplu live de vibe coding și inginerie de prompt. Bilingv, animat, complet responsive.</p>
+        <div class="pstack"><span class="ps">HTML/CSS</span><span class="ps">JavaScript</span><span class="ps">Claude AI</span></div>
+        <a href="#contact" class="plink"><span class="en">Let's build yours</span><span class="ro">Să construim al tău</span> &#8594;</a>
+      </div>
+    </div>
+    <div class="pcard pcard-full reveal reveal-delay-2">
+      <div class="pcard-header ph-blue" style="height:120px;">
+        <div class="ph-pattern"></div>
+        <div class="ph-accent ph-accent-2"></div>
+        <span class="pcard-num">03</span>
+        <span class="pcard-badge"><span class="en">Coming soon</span><span class="ro">În curând</span></span>
+        <div class="code-deco">
+          &gt; new project loading...
+        </div>
+      </div>
+      <div class="pcard-body">
+        <h3><span class="en">Next project: in progress</span><span class="ro">Urmează proiecte noi</span></h3>
+        <p class="en">More projects are being built and will be added here soon. If you have an interesting idea or need a data-driven web solution with AI integration, let's collaborate.</p>
+        <p class="ro">Urmează mai multe proiecte care vor fi adăugate în curând. Dacă ai o idee interesantă sau ai nevoie de o soluție web cu integrare AI, hai să colaborăm.</p>
+        <div class="pstack"><span class="ps">TBD</span><span class="ps">AI Agents</span><span class="ps">Web</span><span class="ps">Data</span></div>
+        <a href="#contact" class="plink"><span class="en">Collaborate</span><span class="ro">Colaborează</span> &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <span class="tag reveal en">Education</span>
+  <span class="tag reveal ro">Educație</span>
+  <h2 class="big-title reveal reveal-delay-1 en">Academic background</h2>
+  <h2 class="big-title reveal reveal-delay-1 ro">Formare academică</h2>
+  <div class="edu-layout">
+    <div class="edu-card reveal reveal-delay-1">
+      <div class="year-bg">2027</div>
+      <p class="edu-degree">Master | 2025 to 2027</p>
+      <h3><span class="en">Business Information Systems</span><span class="ro">Sisteme Informatice de Afaceri</span></h3>
+      <p class="edu-school">FEAA Timișoara</p>
+      <p class="edu-desc en">Specializing in AI, Machine Learning, Big Data Analytics, Business Intelligence, SAP, and AI-assisted programming, building decision-making systems for complex business environments. Active Student Tutor in the P2PT program for Economic Informatics.</p>
+      <p class="edu-desc ro">Specializare în AI, Machine Learning, Big Data Analytics, Business Intelligence, SAP și programare asistată de AI, construind sisteme de decizie pentru medii de business complexe. Tutor Student activ în programul P2PT pentru Informatică Economică.</p>
+    </div>
+    <div class="edu-card reveal reveal-delay-2">
+      <div class="year-bg">2025</div>
+      <p class="edu-degree">Bachelor | 2022 to 2025 | <span class="en">Thesis: highest grade</span><span class="ro">Lucrare de licență: nota maximă</span></p>
+      <h3><span class="en">Business Informatics (BBA)</span><span class="ro">Informatică Economică (BBA)</span></h3>
+      <p class="edu-school">FEAA Timișoara</p>
+      <p class="edu-desc en">Developed skills in web development, database management, and data visualization using PHP, JavaScript, HTML, SQL, Bootstrap, Power BI, and Excel. Bachelor thesis: web application for diabetes clinic management (highest grade). Participated in CyberForum 2025 and UVT Business Week.</p>
+      <p class="edu-desc ro">Abilități în web development, gestionarea bazelor de date și vizualizare date: PHP, JavaScript, HTML, SQL, Bootstrap, Power BI și Excel. Lucrare de licență: aplicație web de management clinică (nota maximă). Participare la CyberForum 2025 și UVT Business Week.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICATIONS -->
+<section class="section" id="certifications">
+  <span class="tag reveal en">Certifications</span>
+  <span class="tag reveal ro">Certificări</span>
+  <h2 class="big-title reveal reveal-delay-1 en">Licenses & <em>certifications</em></h2>
+  <h2 class="big-title reveal reveal-delay-1 ro">Licențe și <em>certificări</em></h2>
+  <p class="sub-text reveal reveal-delay-2 en">Continuous learning across data, AI, and business analytics.</p>
+  <p class="sub-text reveal reveal-delay-2 ro">Învățare continuă în domenii de date, AI și analiză de business.</p>
+  <div class="cert-list reveal reveal-delay-2">
+
+    <a class="cert-row" href="https://www.udemy.com/certificate/UC-6810eb48-5e8a-4525-802d-12385910358e/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Artificial Intelligence on Microsoft Azure</span>
+        <span class="cert-row-issuer">Microsoft</span>
+      </div>
+      <span class="cert-row-date">Sep 2025</span>
+    </a>
+
+    <a class="cert-row" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Master Data Management (MDM) - The Complete Course</span>
+        <span class="cert-row-issuer">Udemy</span>
+      </div>
+      <span class="cert-row-date">Sep 2025</span>
+    </a>
+
+    <a class="cert-row" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">AI For Everyone</span>
+        <span class="cert-row-issuer">DeepLearning.AI</span>
+      </div>
+      <span class="cert-row-date">Sep 2025</span>
+    </a>
+
+    <div class="cert-extra" id="certExtra" style="display:none;">
+
+    <a class="cert-row" href="https://www.udemy.com/certificate/UC-9da6a15a-36db-41fe-96dd-619205ee7398/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Excel: Data Cleaning and Analysis Techniques</span>
+        <span class="cert-row-issuer">Udemy</span>
+      </div>
+      <span class="cert-row-date">Oct 2025</span>
+    </a>
+
+    <a class="cert-row" href="https://www.udemy.com/certificate/UC-6810eb48-5e8a-4525-802d-12385910358e/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Business Math with Excel</span>
+        <span class="cert-row-issuer">Udemy</span>
+      </div>
+      <span class="cert-row-date">Oct 2025</span>
+    </a>
+
+    <a class="cert-row" href="https://www.udemy.com/certificate/UC-806bd9b3-8771-447f-b430-73bd3396ff24/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Excel Shortcuts, Tips & Tricks</span>
+        <span class="cert-row-issuer">Udemy</span>
+      </div>
+      <span class="cert-row-date">Sep 2025</span>
+    </a>
+
+    <a class="cert-row" href="https://www.udemy.com/certificate/UC-1b0617e0-5453-4864-ae7f-6241b23c7b85/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Introduction to Business Data Analysis</span>
+        <span class="cert-row-issuer">Udemy</span>
+      </div>
+      <span class="cert-row-date">Sep 2025</span>
+    </a>
+
+    <a class="cert-row" href="https://www.udemy.com/certificate/UC-52574d00-1138-4865-a483-a16d6e9a4337/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Excel Skills for Insurance Professionals</span>
+        <span class="cert-row-issuer">Udemy</span>
+      </div>
+      <span class="cert-row-date">Sep 2025</span>
+    </a>
+
+    <a class="cert-row" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="cert-row-left">
+        <span class="cert-row-name">Learning Excel: Data Analysis</span>
+        <span class="cert-row-issuer">LinkedIn Learning</span>
+      </div>
+      <span class="cert-row-date">Aug 2025</span>
+    </a>
+
+    </div><!-- /cert-extra -->
+
+    <button class="cert-toggle" id="certToggle" onclick="toggleCerts()">
+      <span class="en" id="certToggleLabel">+ 6 more certifications</span>
+      <span class="ro" id="certToggleLabelRo">+ 6 certificări</span>
+    </button>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-bg" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <span class="tag reveal en">Get in touch</span>
+      <span class="tag reveal ro">Contactează-mă</span>
+      <h2 class="big-title reveal reveal-delay-1 en">Let's build<br><em>something</em></h2>
+      <h2 class="big-title reveal reveal-delay-1 ro">Să construim<br><em>ceva</em></h2>
+      <p class="sub-text reveal reveal-delay-2 en">Open to new opportunities, collaborations, and interesting projects. Whether you need a data analyst, a web application, an AI-powered solution or a digital marketing campaign, let's talk.</p>
+      <p class="sub-text reveal reveal-delay-2 ro">Deschisă la noi oportunități, colaborări și proiecte interesante. Ai nevoie de un analist de date, o aplicație web, o soluție AI sau o campanie de marketing digital? Hai să vorbim.</p>
+      <div class="c-links reveal reveal-delay-3">
+        <a href="https://www.linkedin.com/in/emilia-pop/" class="clink" target="_blank" rel="noopener noreferrer">
+          <div class="clink-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><div class="lbl">LinkedIn</div><div class="val">/in/emilia-pop</div></div>
+        </a>
+        <a href="https://github.com/Pop-Emilia" class="clink" target="_blank" rel="noopener noreferrer">
+          <div class="clink-icon"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="rgba(255,255,255,0.6)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><div class="lbl">GitHub</div><div class="val">/Pop-Emilia</div></div>
+        </a>
+        <a href="mailto:pop.emilia.alexandra@icloud.com" class="clink">
+          <div class="clink-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="lbl">Email</div><div class="val">pop.emilia.alexandra@icloud.com</div></div>
+        </a>
+      </div>
+    </div>
+    <form class="contact-form reveal reveal-delay-2" action="https://formspree.io/f/xojprkyd" method="POST">
+      <div class="cform-group">
+        <label class="cform-label"><span class="en">Name</span><span class="ro">Nume</span></label>
+        <input class="cform-input" type="text" name="name" placeholder="John Doe" required>
+      </div>
+      <div class="cform-group">
+        <label class="cform-label">Email</label>
+        <input class="cform-input" type="email" name="email" placeholder="john@company.com" required>
+      </div>
+      <div class="cform-group">
+        <label class="cform-label"><span class="en">Subject</span><span class="ro">Subiect</span></label>
+        <input class="cform-input" type="text" name="subject" placeholder="Project idea, collaboration...">
+      </div>
+      <div class="cform-group">
+        <label class="cform-label">Message / Mesaj</label>
+        <textarea class="cform-input" name="message" placeholder="Tell me about your project..." required></textarea>
+      </div>
+      <label class="cform-consent">
+        <input type="checkbox" name="consent" required>
+        <span class="en">I agree that my data (name, email, message) will be processed to respond to my inquiry. <a onclick="openPrivacy()">Privacy Policy</a></span>
+        <span class="ro">Sunt de acord ca datele mele (nume, email, mesaj) să fie procesate pentru a răspunde solicitării. <a onclick="openPrivacy()">Politica de confidențialitate</a></span>
+      </label>
+      <button class="btn-send" type="submit"><span class="en">Send message</span><span class="ro">Trimite mesajul</span></button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo">EP | Emilia Pop</span>
+  <span class="footer-copy en">2026 | Personal portfolio - not a commercial entity. No products or services are sold on this website.</span>
+  <span class="footer-copy ro">2026 | Portofoliu personal - nu reprezintă o entitate comercială. Nu se vând produse sau servicii pe acest site.</span>
+  <a onclick="openPrivacy()" style="font-size:11px; color:rgba(255,255,255,0.25); font-family:var(--mono); text-decoration:underline; cursor:pointer;">
+    <span class="en">Privacy Policy</span><span class="ro">Confidențialitate</span>
+  </a>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+document.querySelectorAll('a, button, .pcard, .skill-block, .c-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('hovered'); ring.classList.add('hovered'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('hovered'); ring.classList.remove('hovered'); });
+});
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  // progress bar
+  const scrolled = window.scrollY;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progressBar').style.width = (scrolled / total * 100) + '%';
+  // back to top
+  document.getElementById('backToTop').classList.toggle('visible', scrolled > 400);
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function setLang(lang, btn) {
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.body.classList.toggle('lang-ro', lang === 'ro');
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+// GDPR
+function acceptCookies() {
+  localStorage.setItem('ep_cookie_consent', 'accepted');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+function declineCookies() {
+  localStorage.setItem('ep_cookie_consent', 'declined');
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+function openPrivacy() {
+  document.getElementById('privacyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePrivacy() {
+  document.getElementById('privacyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closePrivacyOutside(e) {
+  if (e.target === document.getElementById('privacyModal')) closePrivacy();
+}
+// Hide banner if already answered
+if (localStorage.getItem('ep_cookie_consent')) {
+  document.getElementById('cookieBanner').classList.add('hidden');
+}
+
+function toggleCerts() {
+  const extra = document.getElementById('certExtra');
+  const open = extra.style.display === 'block';
+  extra.style.display = open ? 'none' : 'block';
+  document.getElementById('certToggleLabel').textContent = open ? '+ 6 more certifications' : '- show less';
+  document.getElementById('certToggleLabelRo').textContent = open ? '+ 6 certificări' : '- mai puțin';
+}
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+</script>
+</body>
+</html>
